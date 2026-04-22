@@ -21,10 +21,11 @@ export default function Art() {
     const acc: Slide[] = [];
     const map = new Map<string, number>();
     for (const piece of pieces) {
-      if (piece.meta.kind !== 'photo') continue;
-      piece.meta.images.forEach((src, i) => {
+      const meta = piece.meta;
+      if (meta.kind !== 'photo') continue;
+      meta.images.forEach((src, i) => {
         map.set(`${piece.slug}:${i}`, acc.length);
-        acc.push({ src, title: piece.meta.title, description: piece.meta.medium });
+        acc.push({ src, title: meta.title, description: meta.medium });
       });
     }
     return { slides: acc, indexFor: map };
