@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --grid-gap: 1.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  ::selection {
+    background-color: theme('colors.accent');
+    color: theme('colors.paper');
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-brutal;
+  }
+}
+
+@layer components {
+  .rule {
+    @apply border-t-3 border-rule;
+  }
+
+  .grid-12 {
+    @apply grid grid-cols-4 md:grid-cols-12 gap-x-6 gap-y-8;
+  }
+
+  .brutal-card {
+    @apply border-3 border-rule bg-paper transition-transform;
+  }
+
+  .brutal-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 theme('colors.rule');
+  }
+
+  .link-underline {
+    @apply underline decoration-2 underline-offset-4 decoration-accent hover:decoration-rule;
+  }
+
+  .prose-brutal {
+    @apply max-w-prose text-ink;
+  }
+
+  .prose-brutal h1 {
+    @apply text-huge mt-0 mb-8;
+  }
+
+  .prose-brutal h2 {
+    @apply font-display text-3xl md:text-4xl mt-16 mb-4 tracking-brutal;
+  }
+
+  .prose-brutal h3 {
+    @apply font-display text-2xl mt-10 mb-3 tracking-brutal;
+  }
+
+  .prose-brutal p {
+    @apply my-5 leading-relaxed;
+  }
+
+  .prose-brutal a {
+    @apply link-underline;
+  }
+
+  .prose-brutal ul {
+    @apply my-5 pl-6 list-disc;
+  }
+
+  .prose-brutal ol {
+    @apply my-5 pl-6 list-decimal;
+  }
+
+  .prose-brutal li {
+    @apply my-2;
+  }
+
+  .prose-brutal blockquote {
+    @apply my-6 border-l-3 border-accent pl-6 italic text-ink/80;
+  }
+
+  .prose-brutal code {
+    @apply font-mono text-[0.9em] bg-concrete px-1.5 py-0.5;
+  }
+
+  .prose-brutal pre {
+    @apply my-6 p-5 bg-ink text-paper overflow-x-auto border-3 border-rule;
+  }
+
+  .prose-brutal pre code {
+    @apply bg-transparent p-0 text-paper;
+  }
+
+  .prose-brutal img {
+    @apply my-8 w-full border-3 border-rule;
+  }
+
+  .prose-brutal hr {
+    @apply my-10 border-0 border-t-3 border-rule;
+  }
+
+  .prose-brutal table {
+    @apply my-6 w-full border-3 border-rule;
+  }
+
+  .prose-brutal th, .prose-brutal td {
+    @apply border border-rule px-3 py-2 text-left;
+  }
+
+  .prose-brutal th {
+    @apply bg-concrete font-display;
+  }
+}
